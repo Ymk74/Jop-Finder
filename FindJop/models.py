@@ -13,10 +13,15 @@ JOP_TYPE = [
 
 
 class Jop(models.Model):
+    user = models.ForeignKey(User , related_name='jop_author' , on_delete=models.SET_NULL,null=True)
     jop_title = models.CharField(max_length=30)
     image = models.ImageField(upload_to='FindJops')
     company_name = models.CharField(max_length=30)
     address = models.CharField(max_length=50)
     salary = models.IntegerField()
-    created_at = models.DateField(_('Created at'),default=timezone.now)
+    created_at = models.DateField(default=timezone.now)
     jop_nature = models.CharField(max_length=10, choices=JOP_TYPE)
+
+    def __str__(self):
+        return self.jop_title
+    
