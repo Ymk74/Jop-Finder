@@ -1,5 +1,5 @@
 jop:
-- name
+- jop title
 - image 
 - company name
 - address
